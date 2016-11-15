@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate.css" />
+		<title></title>
+
+		<style type="text/css">
+			@-webkit-keyframes xuanzhuang {
+				from {
+					transform: rotateZ(0deg);
+				}
+				to {
+					transform: rotateZ(720deg);
+				}
+			}
+			
+			body {
+				overflow: hidden;
+			}
+			
+			.book {
+				position: relative;
+				overflow: hidden;
+				display: none;
+			}
+			
+			.page6 {
+				background-color: #EBDACD;
+				background-position: center;
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.page5 {
+				background-color: #EBDACD;
+				background-position: center;
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.page4 {
+				background-color: #EBDACD;
+				background-position: center;
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.page3 {
+				background-color: #EBDACD;
+				background-position: center;
+				position: absolute;
+				overflow: hidden;
+			}
+			
+			.page2 {
+				background-color: #EBDACD;
+				position: absolute;
+				background-position: center;
+			}
+			
+			.page1 {
+				background-color: #EBDACD;
+				background-position: center;
+				background-image: url(images/1.jpg);
+				background-position: center;
+				background-size: 100% 100%;
+				position: absolute;
+				overflow: hidden;
+				opacity: 0;
+			}
+			
+			.page1In {
+				width: 100%;
+				height: 100%;
+				background-image: url(img/tairuier.jpg);
+				background-position: center;
+			}
+			
+			.shadow {
+				position: absolute;
+				display: none;
+				width: 2000px;
+				height: 2000px;
+				transform-origin: left top;
+				box-shadow: -2px 2px 30px rgba(0, 0, 0, 0.5), 2px -2px 30px rgba(0, 0, 0, 0.5);
+			}
+			
+			.shadow_LT {
+				position: absolute;
+				display: none;
+				width: 2000px;
+				height: 2000px;
+				transform-origin: left top;
+				box-shadow: -2px 2px 30px rgba(0, 0, 0, 0.5), 2px -2px 30px rgba(0, 0, 0, 0.5);
+			}
+			
+			.shadowIn {
+				width: 200%;
+				height: 200%;
+				background-color: red;
+				position: absolute;
+				overflow: hidden;
+				display: none;
+				left: 100%;
+				transform-origin: left center;
+			}
+			
+			.changeBg,
+			.changeBg_LT {
+				background-color: orange;
+				position: absolute;
+				background-position: center;
+				background-image: url(img/guerdan.jpg);
+				transform-origin: left bottom;
+			}
+			
+			.shadowIn_LT {
+				width: 200%;
+				height: 200%;
+				background-color: red;
+				position: absolute;
+				overflow: hidden;
+				display: none;
+				left: 100%;
+				top: 100%;
+				transform-origin: left center;
+			}
+			
+			.shadowBefore {
+				width: 200%;
+				height: 100%;
+				position: absolute;
+				display: none;
+				left: -200%;
+				top: 0;
+				transform-origin: left center;
+				box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.5), 2px -2px 30px rgba(0, 0, 0, 0.5), -2px 2px 30px rgba(0, 0, 0, 0.5);
+			}
+			
+			.changeBg_Before {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 50%;
+				top: 0;
+				transform-origin: left center;
+				background-position: center;
+			}
+			
+			.showBefore {
+				width: 200%;
+				height: 100%;
+				left: -200%;
+				position: absolute;
+				overflow: hidden;
+				display: none;
+				top: 0;
+				background-color: red;
+			}
+			
+			.info1,
+			.info2,
+			.info3,
+			.info4,
+			.info5,
+			.info6,
+			.info10 {
+				opacity: 0;
+			}
+			
+			.music {
+				animation: xuanzhuang linear infinite 5s;
+			}
+			
+			.musicssp {
+				display: none;
+			}
+			
+			.fload {
+				background: #EBDACD;
+			}
+			
+			@keyframes aaa {
+				0% {
+					-webkit-transform: translateY(0) scaleY(1) scaleX(1);
+					transform: translateY(0) scaleY(1) scaleX(1);
+				}
+				10% {
+					-webkit-transform: translateY(5px) scaleY(1) scaleX(1);
+					transform: translateY(5px) scaleY(1) scaleX(1);
+				}
+				25% {
+					-webkit-transform: translateY(20px) scaleY(1.2) scaleX(0.8);
+					transform: translateY(20deg) scaleY(1.2) scaleX(0.8);
+				}
+				42% {
+					-webkit-transform: translateY(60px) scaleY(1.2) scaleX(0.8);
+					transform: translateY(60deg) scaleY(1.2) scaleX(0.8);
+				}
+				50% {
+					-webkit-transform: translateY(70px) scaleY(0.8) scaleX(1.2);
+					transform: translateY(70px) scaleY(0.8) scaleX(1.2);
+				}
+				58% {
+					-webkit-transform: translateY(60px) scaleY(1.2) scaleX(.8);
+					transform: translateY(60deg) scaleY(1.2) scaleX(.8);
+				}
+				75% {
+					-webkit-transform: translateY(20px) scaleY(1.2) scaleX(0.8);
+					transform: translateY(20deg) scaleY(1.2) scaleX(0.8);
+				}
+				90% {
+					-webkit-transform: translateY(5px) scaleY(1) scaleX(1);
+					transform: translateY(5px) scaleY(1) scaleX(1);
+				}
+				100% {
+					-webkit-transform: translateY(0) scaleY(1) scaleX(1);
+					transform: translateY(0) scaleY(1) scaleX(1);
+				}
+			}
+			
+			.ball {
+				height: 20px;
+				width: 20px;
+				background-color: white;
+				border-radius: 50% 50%;
+				position: absolute;
+				animation: aaa 0.8s linear infinite;
+			}
+			
+			.floor:nth-of-type(2) {
+				position: absolute;
+				width: 30px;
+				height: 3px;
+				background-color: white;
+				top: 82px;
+				animation: bbb 2.4s 0s linear infinite;
+				opacity: 0;
+			}
+			
+			.floor:nth-of-type(3) {
+				position: absolute;
+				width: 30px;
+				height: 3px;
+				background-color: white;
+				top: 82px;
+				animation: bbb 2.4s 0.8s linear infinite;
+				opacity: 0;
+			}
+			
+			.floor:nth-of-type(4) {
+				position: absolute;
+				width: 30px;
+				height: 3px;
+				background-color: white;
+				top: 82px;
+				animation: bbb 2.4s 1.6s linear infinite;
+				opacity: 0;
+			}
+			
+			@keyframes bbb {
+				0% {
+					left: 50px;
+					top: 42px;
+					opacity: 0;
+				}
+				50% {
+					left: 0px;
+					top: 82px;
+					opacity: 1;
+				}
+				100% {
+					left: -50px;
+					top: 122px;
+					opacity: 0;
+				}
+			}
+			.wrap {
+				left: 50%;
+				top: 40%;
+				width: 100px;
+				height: 100px;
+				position: absolute;
+			}
+			.floadp{
+				width: 70px;
+				height: 50px;
+				margin-top: 150px;
+				margin-left: -30px;
+				font-size: 20px;
+				font-weight: bold;
+				color: white;
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="fload wMax">
+		<div class="wrap">
+			<div class="ball"></div>
+			<div class="floor"></div>
+			<div class="floor"></div>
+			<div class="floor"></div>
+			<p class="floadp">0%</p>
+		</div>
+			
+		</div>
+		<div class="book wMax">
+			<div class="musicssp">
+				<img src="images/off.png" />
+			</div>
+			<div class="music">
+				<audio src="mp3/bg.mp3" loop="loop" style="display: none;" class="fmusic"></audio>
+				<img src="images/on.png" />
+
+			</div>
+			<div class="page6 wMax pages">
+				<div class="info12"><img src="images/6-1.png" /></div>
+				<div class="info11"><img src="images/6-3.png" /></div>
+				<div class="info10"><img src="images/6-2.png" /></div>
+			</div>
+			<div class="page5 wMax pages">
+				<div class="info9"><img src="images/5-1.png" /></div>
+				<div class="info8"><img src="images/5-2.png" /></div>
+				<div class="info7"><img src="images/5-3.png" /></div>
+			</div>
+			<div class="page4 wMax pages">
+				<div class="info6"><img src="images/4-1.png" /></div>
+				<div class="info5"><img src="images/4-2.png" /></div>
+			</div>
+			<div class="page3 wMax pages">
+				<div class="info4"><img src="images/3-1.png" /></div>
+				<div class="info3"><img src="images/3-2.png" /></div>
+			</div>
+			<div class="page2 wMax pages">
+				<div class="infoc">
+					<div class="info2"><img src="images/2-1.png" /></div>
+					<div class="info1"><img src="images/2-2.png" /></div>
+				</div>
+			</div>
+			<div class="page1 wMax pages"></div>
+			<div class="shadowIn">
+				<div class="changeBg wMax"></div>
+			</div>
+			<div class="shadow"></div>
+
+			<div class="shadowIn_LT">
+				<div class="changeBg_LT wMax"></div>
+			</div>
+			<div class="shadow_LT"></div>
+
+			<div class="showBefore">
+				<div class="changeBg_Before wMax"></div>
+			</div>
+			<div class="shadowBefore"></div>
+		</div>
+	</body>
+	<script src="js/function.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/pages.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		// 赋予与屏幕适配的高度与宽度
+		var wMaxs = document.querySelectorAll(".wMax");
+
+		for(var i = 0; i < wMaxs.length; i++) {
+			wMaxs[i].style.width = window.innerWidth + "px";
+			wMaxs[i].style.height = window.innerHeight + "px";
+		}
+		var pages = document.querySelectorAll(".pages");
+		var page1 = document.querySelector(".page1"); //获取第一页
+		var page2 = document.querySelector(".page2"); //获取第二页
+		var page3 = document.querySelector(".page3"); //获取第3页
+		var page4 = document.querySelector(".page4"); //获取第4页
+		var page5 = document.querySelector(".page5");
+		var page6 = document.querySelector(".page6");
+		var shadow = document.querySelector(".shadow"); //获取阴影页
+		var shadowIn = document.querySelector(".shadowIn");
+		var shadow_LT = document.querySelector(".shadow_LT");
+		var shadowIn_LT = document.querySelector(".shadowIn_LT");
+		var changeBg = document.querySelector(".changeBg");
+		var changeBg_LT = document.querySelector(".changeBg_LT");
+		var shadowBefor = document.querySelector(".shadowBefore");
+		var shadowIn_Before = document.querySelector(".showBefore");
+		var changeBg_Before = document.querySelector(".changeBg_Before");
+		var appearTimer = null;
+		var appearDire = 0;
+		//creatFlash()传入五个参数 第一个参数代表当前页面DOM对象 第二个参数代表掀开之后下一页的背景 下一页DOM对象 上一页背景 上一页DOM对象
+		creatFlash(page1, "#EBDACD", page2, "#EBDACD", "", function() {
+			//本页消失执行动作
+			occPage()
+		}, function() {
+
+			//切换到上一页时执行动作
+		});
+		creatFlash(page2, "#EBDACD", page3, "#EBDACD", page1, function() {
+			occPage3()
+		}, function() {
+			occ2index1()
+		});
+		creatFlash(page3, "#EBDACD", page4, "#EBDACD", page2, function() {
+			occPage4()
+
+		}, function() {
+
+		});
+		creatFlash(page4, "#EBDACD", page5, "#EBDACD", page3, function() {
+			occPage5();
+		}, function() {
+
+		});
+		creatFlash(page5, "#EBDACD", page6, "#EBDACD", page4, function() {
+			occPage6()
+		}, function() {
+
+		});
+		creatFlash(page6, "#EBDACD", "", "#EBDACD", page5, function() {
+
+		}, function() {
+
+		});
+	</script>
+	<script type="text/javascript">
+		$(".page1").animate({
+			"opacity": "1",
+
+		}, 3000)
+		$("html").css({
+			"font-size": window.innerWidth / 100 + "px"
+		});
+		//二页面设置
+		$(".info1").css({
+			"width": "30rem",
+			"height": "30rem",
+		});
+		$(".info1 img").css({
+			"width": "30rem",
+			"height": "30rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "35rem",
+			"margin-left": "-15rem"
+
+		});
+		$(".info2 img").css({
+			"width": "50rem",
+			"height": "13rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "20rem",
+			"margin-left": "-25rem"
+
+		});
+		//三页面设置
+		$(".info3").css({
+			"width": "30rem",
+			"height": "30rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "40rem",
+			"margin-left": "-15rem"
+		});
+		$(".info3 img").css({
+			"width": "30rem",
+			"height": "30rem",
+
+		});
+		$(".info4 img").css({
+			"width": "60rem",
+			"height": "10rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "20rem",
+			"margin-left": "-30rem"
+
+		});
+		//四页面设置
+		$(".info5").css({
+			"width": "30rem",
+			"height": "30rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "35rem",
+			"margin-left": "-15rem"
+		});
+		$(".info5 img").css({
+			"width": "30rem",
+			"height": "30rem",
+
+		});
+		$(".info6 img").css({
+			"width": "50rem",
+			"height": "13rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "20rem",
+			"margin-left": "-25rem"
+
+		});
+		//五页面设置
+		$(".info7").css({
+			"width": "30rem",
+			"height": "32rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "42rem",
+			"margin-left": "-15rem",
+			"display": "none"
+		});
+		$(".info7 img").css({
+			"width": "30rem",
+			"height": "32rem"
+
+		});
+		$(".info8").css({
+			"width": "50rem",
+			"height": "13rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "28rem",
+			"margin-left": "-25rem",
+			"display": "none"
+		})
+		$(".info8 img").css({
+			"width": "50rem",
+			"height": "11rem"
+		});
+		$(".info9").css({
+			"width": "30rem",
+			"height": "16rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "10rem",
+			"margin-left": "-15rem",
+			"display": "none"
+		});
+		$(".info9 img").css({
+			"width": "30rem",
+			"height": "13rem"
+
+		});
+		//六页面设置
+		$(".info10").css({
+			"width": "30rem",
+			"height": "32rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "50rem",
+			"margin-left": "-15rem",
+
+		});
+		$(".info10 img").css({
+			"width": "30rem",
+			"height": "32rem"
+
+		});
+		$(".info11").css({
+			"width": "50rem",
+			"height": "13rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "39rem",
+			"margin-left": "-25rem",
+
+			"display": "none"
+		})
+		$(".info11 img").css({
+			"width": "50rem",
+			"height": "11rem"
+		});
+		$(".info12").css({
+			"width": "50rem",
+			"height": "16rem",
+			"position": "absolute",
+			"left": "50%",
+			"top": "23rem",
+			"margin-left": "-25rem",
+			"display": "none"
+		});
+		$(".info12 img").css({
+			"width": "50rem",
+			"height": "12rem"
+
+		});
+		//音乐按钮
+		$(".music").css({
+			"width": "7rem",
+			"height": "7rem",
+			"position": "fixed",
+			"right": "1rem",
+			"top": "1rem",
+			"z-index": "5"
+		})
+		$(".music img").css({
+				"width": "7rem",
+				"height": "7rem",
+			})
+			//		//暂停按钮
+		$(".musicssp").css({
+			"width": "7em",
+			"height": "7rem",
+			"position": "fixed",
+			"right": "-6rem",
+			"top": "1rem",
+			"z-index": "6"
+		})
+		$(".musicssp img").css({
+			"width": "7rem",
+			"height": "7rem"
+		})
+
+		//二页面动画
+		function occPage() {
+			$(".page1").css({
+				"opacity": "0"
+			});
+			setTimeout(function() {
+				$(".info2").animate({
+					"opacity": "1"
+				}, 1000);
+
+			}, 1000)
+			$(".info1").animate({
+				"opacity": "1"
+			}, 2000)
+
+		}
+		//一页面返回动画
+		function occ2index1() {
+			$(".page2").css({
+				"opacity": "0"
+			})
+			$(".page1").animate({
+				"opacity": "1"
+
+			}, 3000)
+		}
+		//三页面动画
+		function occPage3() {
+			//			$(".page").css({
+			//				"opacity":"0"
+			//			});
+			setTimeout(function() {
+				$(".info3").animate({
+					"opacity": "1"
+				}, 1000);
+
+			}, 1000)
+			$(".info4").animate({
+				"opacity": "1"
+			}, 2000)
+
+		}
+		//四页面动画
+		function occPage4() {
+			setTimeout(function() {
+				$(".info5").animate({
+					"opacity": "1"
+				}, 1000);
+
+			}, 1000)
+			$(".info6").animate({
+				"opacity": "1"
+			}, 2000)
+
+		}
+		//五页动画
+		function occPage5() {
+			var info7 = document.querySelector(".info7");
+			var info8 = document.querySelector(".info8");
+			var info9 = document.querySelector(".info9");
+			setTimeout(function() {
+				info9.className = "animated fadeInLeft"
+				info9.style.display = "block"
+			}, 500)
+			setTimeout(function() {
+				info7.className = "animated fadeInUp"
+				info7.style.display = "block"
+			}, 1000)
+			setTimeout(function() {
+				info8.className = "animated fadeInRight"
+				info8.style.display = "block"
+			}, 1500)
+
+		}
+		//六页动画
+		function occPage6() {
+			$(".info10").animate({
+				"opacity": "1"
+			}, 2000)
+			setTimeout(function() {
+				var info11 = document.querySelector(".info11");
+				info11.className = "animated fadeInRight";
+				info11.style.display = "block";
+			}, 1500)
+			setTimeout(function() {
+				var info12 = document.querySelector(".info12");
+				info12.className = "animated fadeInDown";
+				info12.style.display = "block";
+			}, 500)
+
+		}
+		var fmusic = document.querySelector(".fmusic");
+		//		fmusic.play();
+		var music = document.querySelector(".music");
+		var fload = document.querySelector(".fload");
+		var book = document.querySelector(".book");
+		music.onclick = function() {
+			music.style.display = "none";
+			musicssp.style.display = "block";
+			fmusic.pause();
+		}
+		var musicssp = document.querySelector(".musicssp");
+		musicssp.onclick = function() {
+			fmusic.play();
+			music.style.display = "block";
+			musicssp.style.display = "none";
+		}
+		var loadimg = ["images/1.jpg", "images/2-1.png", "images/2-2.png", "images/3-1.png", "images/3-2.png", "images/4-1.png", "images/4-2.png", "images/5-1.png", "images/5-2.png", "images/5-3.png", "images/6-1.png", "images/6-2.png", "images/6-3.png"]
+		var Floadimg = [];
+		var a=0;
+		for(var i = 0; i < loadimg.length; i++) {
+			var img = new Image();
+			img.index = i;
+			img.src = loadimg[i];
+			Floadimg.push(img);
+			var loadp = document.querySelector(".floadp")
+			
+			img.onload = function() {
+				a++
+				loadp.innerHTML=Math.ceil(a / loadimg.length * 100)+"%";
+				if(Math.ceil(a / loadimg.length * 100)==100) {
+					fmusic.play();
+					fload.style.display = "none";
+					book.style.display = "block";
+				}
+			}
+		}
+	</script>
+
+</html>
